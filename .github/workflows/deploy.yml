@@ -14,6 +14,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      contents: write
 
     env:
       BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
