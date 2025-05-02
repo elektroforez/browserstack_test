@@ -2,15 +2,9 @@ const loginPage = require("../pages/login.page.js");
 const homePage = require("../pages/home.page.js");
 const SingInPage = require("../pages/singIn.page.js");
 const singInPage = require("../pages/singIn.page.js");
+const inputData = require("../features/testdata.js");
 const { expect } = require("@wdio/globals");
 const { faker } = require("@faker-js/faker");
-
-var inputData = {
-  email: faker.internet.email(),
-  password: faker.internet.password(),
-  invalidEmail: faker.lorem.word(),
-  invalidPassword: "1234",
-};
 
 describe("Login", () => {
   before(async () => {
