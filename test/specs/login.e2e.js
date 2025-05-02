@@ -12,7 +12,7 @@ describe("Login", () => {
     await browser.pause(3000);
   });
   it("should show error message on login with invalid data | TC-MA-1", async () => {
-    await loginPage.login(inputData.invalidEmail, inputData.invalidPassword);
+    await loginPage.login(inputData.fakeData.invalidEmail, inputData.fakeData.invalidPassword);
     await browser.pause(3000);
     await expect(loginPage.emailError).toBeDisplayed();
     await expect(loginPage.passwordError).toBeDisplayed();
@@ -22,9 +22,9 @@ describe("Login", () => {
     await loginPage.tapSingUpTab();
     await browser.pause(3000);
     await singInPage.singUp(
-      inputData.invalidEmail,
-      inputData.invalidPassword,
-      inputData.invalidPassword
+      inputData.fakeData.invalidEmail,
+      inputData.fakeData.invalidPassword,
+      inputData.fakeData.invalidPassword
     );
     await browser.pause(3000);
     await expect(singInPage.emailError).toBeDisplayed();
@@ -34,18 +34,18 @@ describe("Login", () => {
     await loginPage.tapSingUpTab();
     await browser.pause(3000);
     await singInPage.singUp(
-      inputData.invalidEmail,
-      inputData.password,
-      inputData.invalidPassword
+      inputData.fakeData.invalidEmail,
+      inputData.fakeData.password,
+      inputData.fakeData.invalidPassword
     );
     await browser.pause(3000);
     await expect(singInPage.repeatPasswordError).toBeDisplayed();
   });
   it("should show success message on singin up with valid data | TC-MA-4", async () => {
     await singInPage.singUp(
-      inputData.email,
-      inputData.password,
-      inputData.password
+      inputData.fakeData.email,
+      inputData.fakeData.password,
+      inputData.fakeData.password
     );
     await browser.pause(9000);
     expect(singInPage.alert).toHaveText("Signed Up!");
@@ -54,7 +54,7 @@ describe("Login", () => {
     await singInPage.closePopup();
     await singInPage.tapLoginButton();
     await browser.pause(3000);
-    await loginPage.login(inputData.email, inputData.password);
+    await loginPage.login(inputData.fakeData.email, inputData.fakeData.password);
     await browser.pause(3000);
     await expect(singInPage.alert).toHaveText("Success");
   });
