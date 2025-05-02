@@ -28,12 +28,12 @@ jobs:
         run: npm ci
 
       - name: Run tests with Google Pixel 3 config
-        run: wdio:pixel
+        run: npm run wdio:pixel
 
       - name: Generate Allure Report
         run: |
-          allure:install
-          allure:generate
+          npm run allure:install
+          npm run allure:generate
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
